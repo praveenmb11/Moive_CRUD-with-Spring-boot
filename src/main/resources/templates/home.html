@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Management Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .home-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 60px 80px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .home-container:hover {
+      transform: translateY(-4px);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #e0e0e0;
+      margin-bottom: 30px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(90deg, #38f9d7, #43e97b);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(90deg, #ff9966, #ff5e62);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(90deg, #ff5e62, #ff9966);
+    }
+  </style>
+</head>
+<body>
+  <div class="home-container">
+    <h1>🎬 Movie Management System</h1>
+    <p>Manage your movie collection — Add new movies or view all saved ones.</p>
+    <div class="button-group">
+      <a href="/add"><button class="btn">➕ Add Movie</button></a>
+      <a href="/fall"><button class="btn btn-secondary">📜 View All Movies</button></a>
+    </div>
+  </div>
+</body>
+</html>

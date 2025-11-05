@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View All Movies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      padding: 50px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    th, td {
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    th {
+      background: rgba(0, 0, 0, 0.3);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 15px;
+      color: #f0f0f0;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    img {
+      width: 100px;
+      height: 140px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    iframe {
+      width: 200px;
+      height: 120px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .rating {
+      color: gold;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(90deg, #38f9d7, #43e97b);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎬 All Movies</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Movie Name</th>
+        <th>Description</th>
+        <th>Poster</th>
+        <th>Trailer</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="m:${movies}">
+        <td th:text="${m.name}"></td>
+        <td th:text="${m.description}">A skilled thief enters people’s dreams to steal secrets.</td>
+        <td><img th:src="${m.poster_link}" alt="Inception Poster"></td>
+        <td>
+          <iframe 
+            th:src="${m.trailer_link}" 
+            allowfullscreen>
+          </iframe>
+        </td>
+        <td class="rating" th:text="${m.rating}">⭐ 4.8</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a href="/" class="back-btn">🏠 Back to Home</a>
+</body>
+</html>
