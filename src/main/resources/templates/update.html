@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Movie Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px 50px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      color: white;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #f1f1f1;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      transition: 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      box-shadow: 0 0 8px rgba(118, 75, 162, 0.6);
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    /* Star Rating */
+    .rating {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      align-items: center;
+      width: 180px;
+      margin: 10px 0;
+    }
+
+    .rating input {
+      display: none;
+    }
+
+    .rating label {
+      font-size: 28px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: gold;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #38f9d7, #43e97b);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add Movie Details</h2>
+    <form action="/update" method="post">
+    <div class="form-group">
+        <label for="name"></label>
+        <input type="hidden" id="name" name="name" th:value="${movie.id}" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Movie Name</label>
+        <input type="text" id="name" name="name" th:value="${movie.name}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" th:value="${movie.description}" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="poster_link">Poster Link</label>
+        <input type="url" id="poster_link" name="poster_link" th:value="${movie.poster_link}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="trailer_link">Trailer Link</label>
+        <input type="url" id="trailer_link" name="trailer_link" th:value="${movie.trailer_link}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="rating">
+          <input type="radio" name="rating" id="star5" value="5">
+          <label for="star5">&#9733;</label>
+          <input type="radio" name="rating" id="star4" value="4">
+          <label for="star4">&#9733;</label>
+          <input type="radio" name="rating" id="star3" value="3">
+          <label for="star3">&#9733;</label>
+          <input type="radio" name="rating" id="star2" value="2">
+          <label for="star2">&#9733;</label>
+          <input type="radio" name="rating" id="star1" value="1">
+          <label for="star1">&#9733;</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

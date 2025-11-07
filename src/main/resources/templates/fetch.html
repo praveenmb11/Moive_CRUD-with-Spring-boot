@@ -114,6 +114,8 @@
         <th>Poster</th>
         <th>Trailer</th>
         <th>Rating</th>
+        <th>Delete</th>
+        <th>Update</th>
       </tr>
     </thead>
     <tbody>
@@ -128,10 +130,14 @@
           </iframe>
         </td>
         <td class="rating" th:text="${m.rating}">⭐ 4.8</td>
+         <td><a th:href="'/delete?id='+${m.id}">Remove</a></td>
+      <td><a th:href="'/update?id='+${m.id}">Edit</a></td>
       </tr>
+     
     </tbody>
   </table>
-
   <a href="/" class="back-btn">🏠 Back to Home</a>
+  <script th:if="${message}">
+  alert("[[${message}]]")</script>
 </body>
 </html>
